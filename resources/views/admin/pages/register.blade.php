@@ -18,7 +18,7 @@
               <div class="card mb-3">
 
                 <div class="card-body">
-
+                
                 @if(Session::has('info'))
                 <div class="alert alert-info">
                     <strong>{{ Session::get('info') }}</strong> 
@@ -26,12 +26,18 @@
                 @endif
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form method="post" action="{{ url('admin/user-login') }}" class="row g-3 needs-validation" novalidate>
+                  <form method="post" action="{{ url('admin/user-register') }}" class="row g-3 needs-validation" novalidate>
                     @csrf
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Your Name</label>
+                      <input type="text" name="name" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
@@ -44,12 +50,27 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Retype Password</label>
+                      <input type="password" name="cnf_password" class="form-control" id="yourPassword" required>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="">Select Role</label>
+                        <select name="role" id="" class="form-control">
+                            <option value="">Select Role</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Student">Student</option>
+                        </select>
+                    </div>
+
                     
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
+                      <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
                     </div>
                   </form>
 
