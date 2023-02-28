@@ -15,6 +15,19 @@
 <body>
     <div class="container">
         <h2>Create Employee</h2>
+        <div>
+         
+            <div>
+                <a class="btn btn-info" href="{{ url('create-employee/view-pdf') }}" role="button" target="__blank">View PDF</a>
+            </div>
+       
+            <div class="mt-2 col-md-12">
+                {{-- This will have a two-point top margin! --}}
+            </div>
+            <div>
+                <a class="btn btn-success" href="{{ url('create-employee/dwonload-pdf') }}" role="button">Dwonload PDF</a>
+            </div>
+        </div>
         <form action="{{ url('store-employee') }}" enctype="multipart/form-data" method="post">
             @csrf
             <div class="form-group">

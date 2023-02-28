@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use DB;
 use Image;
+use Barryvdh\DomPDF\Facade\Pdf;
 use SebastianBergmann\Complexity\ComplexityCalculatingVisitor;
 class EmployeeController extends Controller
 {
@@ -178,5 +179,22 @@ class EmployeeController extends Controller
     public function delete($id){
         Employee::find($id)->delete();
         return redirect('employees');
+    }
+
+    // function for viewing pdf
+    public function viewPDF(){
+        $pdf = PDF::loadView('employee.create')
+            ->setPaper('a4', 'portate');
+
+        return $pdf->stream();
+    }
+
+    // function for dwonloading pdf
+    public function dwonloadPDF(){
+
+        $pdf = PDF::loadView('employee.create')
+            ->setPaper('a4', 'portate');
+
+        return $pdf->download('employee_form.pdf');
     }
 }

@@ -67,4 +67,7 @@ Route::middleware(['CheckIfLogin'])->group(function () {
 });
 
 
+// creating routes for pdf
+Route::get('create-employee/view-pdf', [EmployeeController::class, 'viewPDF']);
+Route::get('create-employee/dwonload-pdf', [EmployeeController::class, 'dwonloadPDF']);
 
