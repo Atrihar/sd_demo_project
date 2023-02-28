@@ -37,7 +37,14 @@
                 <td>{{ $u->name }}</td>
                 <td>{{ $u->email }}</td>
                 <td>{{ $u->role }}</td>
-                <td>{{ $u->is_approved }}</td>
+                <td>
+                  @if($u->is_approved == 0)
+                   <a href="{{ url('admin/approve/'.$u->id) }}">Approve</a>
+                  @else
+                   Approved
+                  @endif
+                   
+                 </td>
               </tr>
               @endforeach
 

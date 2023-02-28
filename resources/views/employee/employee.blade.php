@@ -23,6 +23,7 @@
                     <th>Birth Date</th>
                     <th>Salary</th>
                     <th>Department</th>
+                    <th>Profile Pic</th>
                     <th>Gender</th>
                     <th>Address</th>
                     <th>Status</th>
@@ -36,6 +37,9 @@
                     <td>{{ $e->birth_date}}</td>
                     <td>{{ $e->salary}}</td>
                     <td>{{ $e->department}}</td>
+                    <td>
+                        <img src="{{ asset('thumbnail/'.$e->profile_pic) }}" alt="">
+                    </td>
                     <td>{{ $e->gender}}</td>
                     <td>{{ $e->address}}</td>
                     <td>

@@ -6,9 +6,23 @@
     <li class="nav-item">
       <a class="nav-link " href="{{ url('admin/dashboard') }}">
         <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
+        <span>Dashboard </span>
       </a>
-    </li><!-- End Dashboard Nav -->
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link " href="{{ url('admin/my_marks') }}">
+        <i class="bi bi-grid"></i>
+        <span>My marks</span>
+      </a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link " href="{{ url('admin/give_marks') }}">
+        <i class="bi bi-grid"></i>
+        <span>Give marks</span>
+      </a>
+    </li>
   
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">

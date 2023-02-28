@@ -45,3 +45,26 @@ Route::get('admin/login',[AuthController::class, 'login']);
 Route::post('admin/user-login',[AuthController::class, 'userLogin']);
 
 Route::get('admin/users',[UserController::class, 'allUsers']);
+
+Route::middleware(['CheckIfLogin'])->group(function () {
+    Route::get('admin/users',[UserController::class, 'allUsers']);
+    Route::get('admin/approve/{userId}', [UserController::class, 'approve']);
+    
+    Route::middleware(['CheckIfTeacher'])->group(function () {
+        Route::get('admin/give_marks',function(){
+            echo 'This is a page for teacher';
+        });
+    });
+
+    Route::middleware(['CheckIfStudent'])->group(function () {
+        Route::get('admin/my_marks',function(){
+            echo 'This is a page for student';
+        });
+    });
+
+    Route::get('signout',[AuthController::class, 'signout']);
+
+});
+
+
+
