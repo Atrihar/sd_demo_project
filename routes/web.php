@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\LayoutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,4 +71,6 @@ Route::middleware(['CheckIfLogin'])->group(function () {
 // creating routes for pdf
 Route::get('create-employee/view-pdf', [EmployeeController::class, 'viewPDF']);
 Route::get('create-employee/dwonload-pdf', [EmployeeController::class, 'dwonloadPDF']);
+
+Route::get('location',[LocationController::class, 'location']);
 
